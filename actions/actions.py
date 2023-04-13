@@ -90,3 +90,20 @@ class ActionFetchTopSong(Action):
                 return None
         else:
             return None
+def test_action():
+    action = ActionFetchTopSong()
+    artist_name = "Coldplay"
+
+    # Call the run function of your custom action
+    events = action.run(
+        None,  # We don't need a real tracker for this test
+        None,  # We don't need a real domain for this test
+        {"artist": artist_name}
+    )
+
+    # Print the response
+    print("Top track for", artist_name, ":", events[0]["text"])
+
+
+if __name__ == "__main__":
+    test_action()
